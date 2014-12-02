@@ -11,7 +11,28 @@ public class Round {
 	public static void main(String[] args) {
 		if (0 == args.length) usage();
 		
-		// TODO begin program here
+		// capture argument from command line as a variable,
+		// of reference type String, named sValue
+		String sValue = args[0];
+		
+		int asRoundedInt = round(sValue);
+		
+		// call Log.info method to print the value
+		Log.info("%d", asRoundedInt);
+	}	
+	
+	public static int round(String val) {
+
+		// because Java is a strongly typed language in order
+		// to convert one type to another (a String to a float)
+		// we must `cast` the value to the new type
+		float asFloat = Float.parseFloat( val );
+		
+		asFloat = asFloat + 0.5f;
+		
+		int asInt = (int) asFloat;
+		
+		return asInt;
 	}
 	
 	/**
