@@ -11,14 +11,13 @@ public class Round {
 	public static void main(String[] args) {
 		if (0 == args.length) usage();
 		
-		// capture argument from command line as a variable,
-		// of reference type String, named sValue
-		String sValue = args[0];
-		
-		int asRoundedInt = round(sValue);
-		
-		// call Log.info method to print the value
-		Log.info("%d", asRoundedInt);
+		for (int i = 0; i < args.length; i++) {
+
+        		int asRoundedInt = round(args[i]);
+        		
+        		Log.info("Round %s => %d", args[i], asRoundedInt);
+
+		}
 	}	
 	
 	public static int round(String val) {
@@ -40,8 +39,8 @@ public class Round {
 	 */
 	private static void usage()
 	{
-		System.err.println("Main [value]");
-		System.err.println("value - a value to be rounded, e.g. 5.8");
+		System.err.println("Main [value1] ... [valueN]");
+		System.err.println("values - a list  of values to be rounded, e.g. 5.8 3.4 2.1");
 		System.exit(1);
 	}
 	
